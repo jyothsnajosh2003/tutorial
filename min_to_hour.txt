@@ -1,0 +1,20 @@
+def convert_minutes_to_hours(minutes):
+    if minutes < 0:
+        raise ValueError("Input minutes must be a non-negative number.")
+    hours = minutes // 60
+    remaining_minutes = minutes % 60
+    hours_label = "hour" if hours == 1 else "hours"
+    minutes_label = "minute" if remaining_minutes == 1 else "minutes"
+    return hours, remaining_minutes, hours_label, minutes_label
+
+# Example usage
+minutes_input = 125
+hours_output, minutes_output, hours_label_output, minutes_label_output = convert_minutes_to_hours(minutes_input)
+print(f"{minutes_input} minutes is equal to ", end="")
+if hours_output > 0:
+    print(f"{hours_output} {hours_label_output}", end="")
+if hours_output > 0 and minutes_output > 0:
+    print(" and ", end="")
+if minutes_output > 0:
+    print(f"{minutes_output} {minutes_label_output}", end="")
+print(".")
